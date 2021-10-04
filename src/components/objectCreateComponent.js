@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from 'axios';
 
 export default class CreateObject extends Component {
     constructor(props) {
@@ -49,6 +51,8 @@ export default class CreateObject extends Component {
         return(
             <div style={{marginTop: 10}}>
                 <h2>Create Object</h2>
+                <div style={{color: this.state.objectColor,
+                            size: this.state.objectSize}}>{this.state.objectText}</div>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Text: </label>
@@ -65,7 +69,7 @@ export default class CreateObject extends Component {
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Save and Exit" className="btn btn-primary"></input>
-                    
+                        <Link to="/" className="btn btn-danger">Cancel</Link>
                     </div>
                 </form>
             </div>
