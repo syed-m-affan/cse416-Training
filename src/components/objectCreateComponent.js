@@ -41,8 +41,8 @@ export default class CreateObject extends Component {
         e.preventDefault();
         console.log("form submitted")
         // eslint-disable-next-line no-template-curly-in-string
-        console.log('Text: ${this.state.objectText}')
-        console.log('Color: ${this.state.objectColor}')
+        console.log('Text: ' + this.state.objectText)
+        console.log('Color: ' + this.state.objectColor)
         
         const newObject = {
             objectText: this.state.objectText,
@@ -58,6 +58,9 @@ export default class CreateObject extends Component {
             objectSize: '12',
             objectColor:'#2BEEF1'
         })
+
+        this.props.history.push('/')
+        window.location.reload(false)
 
     }
     

@@ -52,12 +52,30 @@ objectRoutes.route('/update/:id').post(function(req, res) {
         if (!object)
             res.status(404).send('data not found')
         else
-            object.object_text = req.body.object_text;
-            object.object_color = req.body.object_color;
-            object.object_size =req.body.object_size;
+            object.objectText = req.body.objectText;
+            object.objectColor = req.body.objectColor;
+            object.objectSize =req.body.objectSize;
 
             object.save().then( object => {
                 res.json('object updated');
+            })
+            .catch(err => {
+                res.status(400).send('update not possible')
+            });
+    });
+});
+
+objectRoutes.route('/delete/:id').delete(function(req, res) {
+    Object.findByIdAndDelete(req.params.id, function(err, object){
+        if (!object)
+            res.status(404).send('data not found')
+        else
+            object.objectText = req.body.objectText;
+            object.objectColor = req.body.objectColor;
+            object.objectSize =req.body.objectSize;
+
+            object.save().then( object => {
+                res.json('Deleted object!');
             })
             .catch(err => {
                 res.status(400).send('update not possible')

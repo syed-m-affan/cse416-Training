@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Object = props =>(
+const ObjectComp = props =>(
     <tr>
         <td>{props.object.objectText}</td>
-        <td><Link to={"/edit/"+props.object._id}>Edit</Link></td>
+        <td><Link to={"/view/"+props.object._id}>Edit</Link></td>
     </tr>
 )
 
@@ -26,11 +26,12 @@ export default class ObjectList extends Component {
             .catch(function (error){
                 console.log(error);
             })
+        
     }
 
     objectList(){
         return this.state.objects.map(function(currentObject, i){
-            return <Object object={currentObject} key={}></Object>
+            return <ObjectComp object={currentObject} key={i}></ObjectComp>
         })
     }
 
