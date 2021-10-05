@@ -7,9 +7,9 @@ export default class CreateObject extends Component {
         super(props);
 
         this.state = {
-            objectText: '',
+            objectText: 'default',
             objectSize: "12",
-            objectColor: 'blue'
+            objectColor: '#2BEEF1'
         }
 
         this.onChangeColor = this.onChangeColor.bind(this)
@@ -39,20 +39,36 @@ export default class CreateObject extends Component {
     onSubmit(e) {
 
         e.preventDefault();
+        console.log("form submitted")
+        // eslint-disable-next-line no-template-curly-in-string
+        console.log('Text: ${this.state.objectText}')
+        console.log('Color: ${this.state.objectColor}')
+        
+        const newObject = {
+            objectText: this.state.objectText,
+            objectColor: this.state.objectColor,
+            objectSize: this.state.objectSize,
+        };
+
+        axios.post('http://localhost:4000/objects/add', newObject)
+            .then(res => console.log(res.data));
+
         this.setState({
-            objectText:'',
-            objectSize: 12,
-            objectColor:'blue'
+            objectText:'default',
+            objectSize: '12',
+            objectColor:'#2BEEF1'
         })
 
     }
     
     render() {
         return(
-            <div style={{marginTop: 10}}>
+            <div style={{marginTop: 10,
+                        textAlign: "center"}}>
                 <h2>Create Object</h2>
                 <div style={{color: this.state.objectColor,
-                            size: this.state.objectSize}}>{this.state.objectText}</div>
+                            textAlign: "center",
+                            fontSize: this.state.objectSize + "px"}}>{this.state.objectText}</div>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Text: </label>
