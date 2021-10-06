@@ -3,8 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const objectRoutes = express.Router();
+
+require("dotenv").config();
+
+const path = require("path")
 
 let Object = require('./objectModel');
 
@@ -12,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/objects', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 
@@ -84,6 +88,12 @@ objectRoutes.route('/delete/:id').delete(function(req, res) {
 });
 
 app.use('/objects', objectRoutes);
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+})
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
