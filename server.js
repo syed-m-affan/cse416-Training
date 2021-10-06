@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://saffan98:Test123@cluster0.jzcp3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true });
 const connection = mongoose.connection;
 
 
