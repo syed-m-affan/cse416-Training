@@ -50,7 +50,7 @@ export default class CreateObject extends Component {
             objectSize: this.state.objectSize,
         };
 
-        axios.post('http://localhost:4000/objects/add', newObject)
+        axios.post('objects/add', newObject)
             .then(res => console.log(res.data));
 
         this.setState({

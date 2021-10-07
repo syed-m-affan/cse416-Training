@@ -20,7 +20,7 @@ export default class ViewObject extends Component {
 
     componentDidMount(){
     
-        axios.get('http://localhost:4000/objects/' + this.props.match.params.id)
+        axios.get('/objects/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     objectText : response.data.objectText,
@@ -36,7 +36,7 @@ export default class ViewObject extends Component {
 
     onDelete(){
 
-        axios.delete('http://localhost:4000/objects/delete/' + this.props.match.params.id)
+        axios.delete('/objects/delete/' + this.props.match.params.id)
             .then(response => {
                 console.log('deleted')
             })
