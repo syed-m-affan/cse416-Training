@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-const connection = 'mongodb+srv://saffan98:Test123@cluster0.jzcp3.mongodb.net/trainingVerify?retryWrites=true&w=majority';
+const connection = 'mongodb+srv://admin:bestpass@cluster0.jzcp3.mongodb.net/trainingVerify?retryWrites=true&w=majority';
 
 mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Database Connected Successfully"))
