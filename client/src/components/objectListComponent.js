@@ -19,7 +19,7 @@ export default class ObjectList extends Component {
     }
 
     componentDidMount(){
-        axios.get('/')
+        axios.get('/objects/')
             .then(response => {
                 this.setState({objects: response.data});
             })
