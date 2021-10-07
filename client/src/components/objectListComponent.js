@@ -20,7 +20,7 @@ export default class ObjectList extends Component {
     }
 
     componentDidMount(){
-        axios.get(':'+PORT+'/objects/')
+        axios.get(':'+PORT+'/objects')
             .then(response => {
                 this.setState({objects: response.data});
             })
