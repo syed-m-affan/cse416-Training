@@ -16,14 +16,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-mongoose.connect('mongodb+srv://saffan98:Test123@cluster0.jzcp3.mongodb.net/trainingVerify?retryWrites=true&w=majority', { useNewUrlParser: true });
-const connection = mongoose.connection;
+const connection = 'mongodb+srv://saffan98:Test123@cluster0.jzcp3.mongodb.net/trainingVerify?retryWrites=true&w=majority';
 
-
-connection.once('open', function() {
-    console.log('Connected to db');
-})
-
+mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));
 
 objectRoutes.route('/').get(function(req, res) {
     Object.find(function(err, objects) {
