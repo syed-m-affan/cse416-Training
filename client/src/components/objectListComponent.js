@@ -19,7 +19,7 @@ export default class ObjectList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:4000/objects/')
+        axios.get('https://training-verify-416.herokuapp.com/objects/')
             .then(response => {
                 this.setState({objects: response.data});
             })
