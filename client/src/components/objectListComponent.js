@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const PORT = process.env.PORT || 4000
+
 const ObjectComp = props =>(
     <tr>
         <td>{props.object.objectText}</td>
@@ -19,7 +21,7 @@ export default class ObjectList extends Component {
     }
 
     componentDidMount(){
-        axios.get('localhost:4000/')
+        axios.get('http://localhost:'+PORT+'/objects/')
             .then(response => {
                 this.setState({objects: response.data});
             })
