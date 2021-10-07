@@ -20,7 +20,7 @@ export default class ObjectList extends Component {
     }
 
     componentDidMount(){
-        axios.get(':'+PORT+'/objects')
+        axios.get('/objects/')
             .then(response => {
                 this.setState({objects: response.data});
             })
@@ -50,7 +50,7 @@ export default class ObjectList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.objectList() }
+                        
                     </tbody>
                 </table>
             </div>
