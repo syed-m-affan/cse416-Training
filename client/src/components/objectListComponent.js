@@ -50,7 +50,7 @@ export default class ObjectList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        { this.objectList() }
                     </tbody>
                 </table>
             </div>

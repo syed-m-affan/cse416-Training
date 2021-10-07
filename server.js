@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 const connection = 'mongodb+srv://admin:bestpass@cluster0.jzcp3.mongodb.net/trainingVerify?retryWrites=true&w=majority';
 
-mongoose.connect(connection,{ useNewUrlParser: true})
+mongoose.connect(connection)
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 
