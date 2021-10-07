@@ -24,7 +24,7 @@ export default class EditObject extends Component {
     
     componentDidMount(){
     
-        axios.get('http://localhost:4000/objects/' + this.props.match.params.id)
+        axios.get('/objects/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     objectText : response.data.objectText,
@@ -69,7 +69,7 @@ export default class EditObject extends Component {
             objectSize: this.state.objectSize,
         };
 
-        axios.post('http://localhost:4000/objects/update/'+this.props.match.params.id, newObject)
+        axios.post('/objects/update/'+this.props.match.params.id, newObject)
             .then(res => console.log(res.data));
 
         this.props.history.push('/');
