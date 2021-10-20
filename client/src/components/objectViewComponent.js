@@ -106,7 +106,7 @@ export default class ViewObject extends Component {
                                     <div style={{background: '#FFA2A2',
                                                         borderRadius: '15px',
                                                         }}>
-                                        Racecar Fans
+                                        Racecar Fan
                                     </div>
                                 </Stack>
 
