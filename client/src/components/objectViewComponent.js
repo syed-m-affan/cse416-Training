@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Stack from 'react-bootstrap/Stack'
 
 export default class ViewObject extends Component {
 
@@ -52,27 +54,66 @@ export default class ViewObject extends Component {
     render() {
         return(
             <div style={{background: '#FF5353'}}>
+                <Container>
 
-                <div style= {{  position: 'absolute',
-                                width: '244px',
-                                height: '69px',
-                                left: '18px',
-                                top: '28px',
-                                background: '#C4C4C4',
-                                border: '2px',
-                                boxSizing: 'border-box',
-                                borderRadius: '15px'}}>Return Home</div>
+                    <Row>
 
-                <div style= {{ background: "gray",
-                                position: 'absolute',
-                                width: '1361px',
-                                height: '610px',
-                                left: '279px',
-                                top: '8px',
-                                border: '4px',
-                                borderRadius: '25px',
-                                boxSizing: 'border-box'
-                                }}></div>
+                        <Link to={'/home'}>Home</Link>
+
+                    </Row>
+                    <Row>
+                        <Stack direction="horizontal" gap={3}>
+                            <div style={{background: '#87CEEB',
+                                        borderRadius: '25px'}}>
+                                <Stack gap={2}>
+                                    <div>
+                                        <Stack direction="horizontal" gap={3}>
+                                            <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>Your Platforms</div>
+                                            <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>Create New Platform</div>
+                                        </Stack>
+                                    </div>
+                                    <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>
+                                        Baseball101
+                                    </div>
+                                    <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>
+                                        Racecar Fans
+                                    </div>
+                                </Stack>
+
+                            </div>
+                            <div style={{background: '#87CEEB',
+                                        borderRadius: '25px'}}>
+                                <Stack gap={2}>
+                                    <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>
+                                        Recently
+                                        
+                                    </div>
+                                    <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>
+                                        Baseball101
+                                    </div>
+                                    <div style={{background: '#FFA2A2',
+                                                        borderRadius: '15px',
+                                                        }}>
+                                        Racecar Fans
+                                    </div>
+                                </Stack>
+
+                            </div>
+                        </Stack>
+                    </Row>
+                </Container>
             </div>
         )
     }
