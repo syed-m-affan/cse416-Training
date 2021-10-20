@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Stack from 'react-bootstrap/Stack'
+import Image from 'react-bootstrap/Image'
 
 export default class ViewObject extends Component {
 
@@ -63,7 +61,7 @@ export default class ViewObject extends Component {
       top: "0px"
     }}
   >
-    <Button
+    <Link
       style={{
         position: "absolute",
         width: "244px",
@@ -97,7 +95,7 @@ export default class ViewObject extends Component {
       >
         Return Home
       </div>
-    </Button>
+    </Link>
 
     <div
       style={{
